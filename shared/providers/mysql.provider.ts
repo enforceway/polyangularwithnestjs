@@ -24,23 +24,3 @@ export class MySQLConnection {
     });
   }
 };
-
-
-
-/*
-const mysql = require('mysql2');
-import DBCfg from '../../configs/mysql/mysql.connect.config';
-const mysqlPool = mysql.createPool(DBCfg);
-
-export  function getConnection() {
-  return new Promise((resolve, reject) => {
-    mysqlPool.getConnection(function(err: any, connection: any) {
-      if (err) {
-        return Promise.reject(err);
-      }
-      resolve(connection);
-    });
-  });
-};
-
-*/
