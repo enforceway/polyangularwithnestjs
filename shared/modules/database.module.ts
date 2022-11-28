@@ -1,19 +1,19 @@
 import { Module, DynamicModule } from '@nestjs/common';
-import { ConnectionConfig } from 'configs/mysql/connection';
+import { MYSQL_CONNECTION_CONFIG_PROVIDER } from 'constants/conneciton.config';
 import { GeneralModelIn } from 'interfaces/general.in';
-import { CONNECTION_CONFIG, MySQLConnection } from '../providers/mysql.provider';
+import { MySQLConnectionService } from '../providers/mysql.provider';
 
 @Module({})
 export class DatabaseModule {
-  static forRoot(options?: GeneralModelIn): DynamicModule {
+  static forRoot(options: GeneralModelIn): DynamicModule {
     return {
       global: true,
       module: DatabaseModule,
       providers: [{
-        provide: CONNECTION_CONFIG,
-        useValue: ConnectionConfig
-      }, MySQLConnection],
-      exports: [ MySQLConnection ],
+        provide: MYSQL_CONNECTION_CONFIG_PROVIDER,
+        useValue: options
+      }, MySQLConnectionService],
+      exports: [ MySQLConnectionService ],
     };
   }
 }

@@ -1,15 +1,13 @@
 const mysql2 = require('mysql2');
 import { Inject, Injectable } from '@nestjs/common';
+import { MYSQL_CONNECTION_CONFIG_PROVIDER } from 'constants/conneciton.config';
 import { GeneralModelIn } from 'interfaces/general.in';
 
-export const CONNECTION_CONFIG = 'Connection_Config';
-
 @Injectable()
-export class MySQLConnection {
+export class MySQLConnectionService {
   private mysqlPoolInstance: any = null;
 
-  constructor(@Inject(CONNECTION_CONFIG) connectCfg: GeneralModelIn) {
-    console.log("connectionCfg:", connectCfg);
+  constructor(@Inject(MYSQL_CONNECTION_CONFIG_PROVIDER) connectCfg: GeneralModelIn) {
     this.mysqlPoolInstance = mysql2.createPool(connectCfg);
   }
 

@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { MySQLConnection } from 'shared/providers/mysql.provider';
+import { MySQLConnectionService } from 'shared/providers/mysql.provider';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { Role } from './entities/role.entity';
 
 @Injectable()
 export class RoleService {
-  constructor(private readonly mySQLConnection: MySQLConnection) {
+  constructor(private readonly mySQLConnection: MySQLConnectionService) {
 
   }
   create(createRoleDto: CreateRoleDto) {

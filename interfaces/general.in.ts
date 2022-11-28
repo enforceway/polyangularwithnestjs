@@ -1,3 +1,3 @@
 export interface GeneralModelIn {
-  [key: string]: string
+  [key: string]: any
 }

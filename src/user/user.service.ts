@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MySQLConnection } from 'shared/providers/mysql.provider';
+import { MySQLConnectionService } from 'shared/providers/mysql.provider';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -7,7 +7,7 @@ import { User } from './entities/user.entity';
 @Injectable()
 export class UserService {
 
-  constructor(private readonly mySQLConnection: MySQLConnection) {
+  constructor(private readonly mySQLConnection: MySQLConnectionService) {
 
   }
 
