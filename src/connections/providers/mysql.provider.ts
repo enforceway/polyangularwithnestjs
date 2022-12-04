@@ -1,8 +1,8 @@
 const mysql2 = require('mysql2');
 import { Inject, Injectable } from '@nestjs/common';
 // import { MODULE_OPTIONS_TOKEN } from '@nestjs/common/cache/cache.module-definition';
-import { MODULE_OPTIONS_TOKEN } from 'facility/config.module-definition';
-import { MySQLConnectionConfigIn } from 'interfaces/db-connection/mysql-connection.in';
+import { MODULE_OPTIONS_TOKEN } from 'src/facility/config.module-definition';
+import { MySQLConnectionConfigIn } from 'src/interfaces/db-connection/mysql-connection.in';
 // import { MYSQL_CONNECTION_CONFIG_PROVIDER } from 'constants/conneciton.config';
 // import { GeneralModelIn } from 'interfaces/general.in';
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MySQLConnectionService } from 'shared/providers/mysql.provider';
+import { MySQLConnectionService } from 'src/connections/providers/mysql.provider';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -12,7 +12,12 @@ export class UserService {
   }
 
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+    const user: User = createUserDto.user;
+    user.user_uuid = '5678d0';
+    return {
+      id: 1000,
+      username: user.user_name,
+    };
   }
 
   async findAll(): Promise<Array<User>> {
