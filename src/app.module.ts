@@ -7,10 +7,22 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
 import { RoleModule } from './role/role.module';
 import { UserModule } from './user/user.module';
 import helmet from 'helmet';
+import { ConfigModule } from '@nestjs/config';
+import DBConf from './configs/mysql/connection.dev'
+
 const cors = require('cors');
 
 @Module({
-  imports: [ DatabaseModule.forRoot(ConnectionConfig), RoleModule, UserModule],
+  imports: [
+    ConfigModule,
+    ConfigModule.forRoot({
+      load: [DBConf],
+      isGlobal: true
+    }),
+    DatabaseModule.forRoot(ConnectionConfig),
+    RoleModule,
+    UserModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

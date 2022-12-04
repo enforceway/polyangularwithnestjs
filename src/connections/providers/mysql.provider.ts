@@ -1,5 +1,6 @@
 const mysql2 = require('mysql2');
 import { Inject, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 // import { MODULE_OPTIONS_TOKEN } from '@nestjs/common/cache/cache.module-definition';
 import { MODULE_OPTIONS_TOKEN } from 'src/facility/config.module-definition';
 import { MySQLConnectionConfigIn } from 'src/interfaces/db-connection/mysql-connection.in';
@@ -10,8 +11,9 @@ import { MySQLConnectionConfigIn } from 'src/interfaces/db-connection/mysql-conn
 export class MySQLConnectionService {
   private mysqlPoolInstance: any = null;
 
-  constructor(@Inject(MODULE_OPTIONS_TOKEN) connectCfg: MySQLConnectionConfigIn) {
-    console.log('connectCfg:', connectCfg);
+  constructor(private configService: ConfigService, @Inject(MODULE_OPTIONS_TOKEN) connectCfg: MySQLConnectionConfigIn) {
+    const connectionLimit = this.configService.get<string>('connectionLimit');
+    console.log('connectionLimit:', connectionLimit);
     this.mysqlPoolInstance = mysql2.createPool(connectCfg);
   }
 
