@@ -8,8 +8,10 @@ const root = process.cwd();
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.useStaticAssets(join(__dirname, '..', 'public'));
-  const viewsPath = join(root, 'public');
+  const publicPath = join(root, 'dist', 'public')
+  const viewsPath = join(root, 'dist', 'public');
+
+  app.useStaticAssets(publicPath);
   app.setBaseViewsDir(viewsPath);
   app.setViewEngine('hbs');
   await app.listen(3000);

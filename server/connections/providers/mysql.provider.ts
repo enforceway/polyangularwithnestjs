@@ -13,7 +13,6 @@ export class MySQLConnectionService {
 
   constructor(private configService: ConfigService, @Inject(MODULE_OPTIONS_TOKEN) connectCfg: MySQLConnectionConfigIn) {
     const connectionLimit = this.configService.get<string>('connectionLimit');
-    console.log('connectionLimit:', connectionLimit);
     this.mysqlPoolInstance = mysql2.createPool(connectCfg);
   }
 
