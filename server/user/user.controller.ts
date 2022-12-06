@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpS
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { LoggingInterceptor } from 'src/interceptors/auth/LoginInterceptor';
+import { LoggingInterceptor } from 'server/interceptors/auth/LoginInterceptor';
 
 @UseInterceptors(LoggingInterceptor)
 @Controller('user')

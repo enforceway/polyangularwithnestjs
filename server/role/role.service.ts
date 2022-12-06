@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MySQLConnectionService } from 'src/connections/providers/mysql.provider';
+import { MySQLConnectionService } from 'server/connections/providers/mysql.provider';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { Role } from './entities/role.entity';

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MySQLConnectionService } from 'src/connections/providers/mysql.provider';
+import { MySQLConnectionService } from 'server/connections/providers/mysql.provider';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';

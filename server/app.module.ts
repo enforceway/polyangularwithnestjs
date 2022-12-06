@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { ConnectionConfig } from 'src/configs/mysql/connection';
-import { DatabaseModule } from 'src/connections/modules/database.module';
+import { ConnectionConfig } from 'server/configs/mysql/connection';
+import { DatabaseModule } from 'server/connections/modules/database.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoggerMiddleware } from './middleware/logger.middleware';
